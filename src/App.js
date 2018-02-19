@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import {connect} from 'react-redux'
+import User from './User'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+    <div>
+      <User username={this.props.user.name}/>
+      <button onClick={()=>this.props.setName("Redux hi")}>ChangeName</button>
+    </div>
     );
   }
 }
 
-export default App;
+const mapStatetoProps = (state) => {
+  return {
+    user: state.user,
+    emp: state.emp
+  }
+}
+
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    setName:(name) => {
+      dispatch({
+        type: "setName",
+        payload: name
+      })
+    }
+  }
+}
+
+export default connect(mapStatetoProps,mapDispatchtoProps)(App);
