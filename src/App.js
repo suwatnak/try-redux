@@ -6,7 +6,10 @@ class App extends Component {
     return (
     <div>
       <User username={this.props.user.name}/>
+      <h1>{this.props.emp.result}</h1>
       <button onClick={()=>this.props.setName("Redux hi")}>ChangeName</button>
+      <button onClick={()=>this.props.add(5000)}>Add</button>
+      
     </div>
     );
   }
@@ -25,6 +28,12 @@ const mapDispatchtoProps = (dispatch) => {
       dispatch({
         type: "setName",
         payload: name
+      })
+    },
+    add:(value) => {
+      dispatch({
+        type: "ADD",
+        payload: value
       })
     }
   }

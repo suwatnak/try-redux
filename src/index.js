@@ -63,7 +63,6 @@ const store = createStore(combineReducers({
 }),devtools)
 
 
-
 store.subscribe(() => {
   console.log("update store", store.getState())
 })
