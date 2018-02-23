@@ -9,7 +9,6 @@ class App extends Component {
       <h1>{this.props.emp.result}</h1>
       <button onClick={()=>this.props.setName("Redux hi")}>ChangeName</button>
       <button onClick={()=>this.props.add(5000)}>Add</button>
-      
     </div>
     );
   }
